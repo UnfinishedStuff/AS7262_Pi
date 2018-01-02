@@ -29,15 +29,28 @@ Function to write a single byte to a single virtual register on the breakout.  r
 
 Function to get the breakout to take a single set of ROYGBV readings and return them as a list of floats in the order ROYGBV.
 
+* **take_single_measurement_with_led()**
+
+The same as take_single_measurement(), but turns on the white LED on the breakout before measuring and disables it afterwards.
+
 
 * **get_calibrated_values()**
 
 Function to read, process and return stored calibrated ROYGBV values as a list of floats in the order ROYGBV.  Note that you MUST have used set_measurement_mode() to tell the device to take readings before you can fetch them with this function.
 
 
-* **take_single_measurement_with_led()**
+* **set_measurement_mode(mode)**
 
-The same as take_single_measurement(), but turns on the white LED on the breakout before measuring and disables it afterwards.
+Tells the breakout how to take measurements, MUST be passed a value of 0, 1, 2 or 3.  Without setting this first no readings will be made and get_calibrated_values() will fail.
+
+0 = continuous VBGY readings every (integration time * 2.8
+
+1 = continuous GYOR readings every (integration time * 2.8) milliseconds
+
+2 = continuous reading of all channels every (integration time * 2 * 2.8) milliseconds
+
+3 = single measurement of all channels (no repeat readings/rate)
+
 
 * **get_temperature()**
 
@@ -67,19 +80,6 @@ Turns on the blue indicator LED on the breakout board.  The brightness is contro
 * **disable_indicator_led()**
 
 Turns the indicator LED off.
-
-
-* **set_measurement_mode(mode)**
-
-Tells the breakout how to take measurements, MUST be passed a value of 0, 1, 2 or 3.  Without setting this first no readings will be made and get_calibrated_values() will fail.
-
-0 = continuous VBGY readings every (integration time * 2.8 ms)
-
-1 = continuous GYOR readings every (integration time * 2.8 ms)
-
-2 = continuous reading of all channels every (integration time * 2 * 2.8 ms)
-
-3 = single measurement of all channels (no repeat readings/rate)
 
 
 * **set_indicator_current(current_level)**
