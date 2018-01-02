@@ -3,7 +3,7 @@ Pimoroni Unicorn HAT HD in a bar-graph like format.  Requires the spectrometer.p
 
 import unicornhathd
 import time
-import spectrometer as spectro
+import AS7262-Pi as spectro
 
 """Set up the spectrometer: reset it, set gain and integration time as per Sparkfun's default values in their Arduino script,
 turn off the indicator LED (for some reason it sometimes comes on after resetting the spectrometer)."""
