@@ -15,7 +15,7 @@ Please note that these were written for and have only been tested on the *visibl
 
 # Functions:
 
-* **read_reg(reg_to_read)
+* **read_reg(reg_to_read)**
 
 Returns a single byte from a virtual register on the breakout.  reg_to_read should be the address of the register to read.
 
