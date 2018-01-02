@@ -60,27 +60,39 @@ Turns the indicator LED off.
 **set_measurement_mode(mode)**
 
 Tells the breaout how to take measurements, MUST be passed a value of 0, 1, 2 or 3.  Without setting this first no readings will be made and get_calibrated_values() will fail.
+
 0 = continuous VBGY readings every (integration time * 2.8 ms)
+
 1 = continuous GYOR readings every (integration time * 2.8 ms)
+
 2 = continuous reading of all channels every (integration time * 2 * 2.8 ms)
+
 3 = single measurement of all channels (no repeat readings/rate)
 
 
 **set_indicator_current(current_level)**
 
 Sets the current provided to the indicator LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, the LED doesn't actually turn on until enable_indicator_led() is used.
+
 0 = 1 mA 
+
 1 = 2 mA
+
 2 = 4 mA
+
 3 = 8 mA
 	
 
 **set_led_current(current_level)**
 
 Sets the current provided to the white LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, the LED doesn't actually turn on until enable_main_led() is used.
+
 0 = 12.5 mA 
+
 1 = 25 mA
+
 2 = 50 mA
+
 3 = 100 mA
 
 
@@ -92,9 +104,13 @@ Soft resets the breakout with 0.8 second wait for the device to reset (this time
 **set_gain(gain)**
 
 Sets the gain of the spectrometer.  More gain = higher readings, MUST be passed a value of 0, 1, 2 or 3.
+
 0 = x1   gain
+
 1 = x3.7 gain
+
 2 = x16  gain
+
 3 = x64  gain
 
 
