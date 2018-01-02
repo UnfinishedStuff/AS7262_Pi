@@ -15,61 +15,61 @@ Please note that these were written for and have only been tested on the *visibl
 
 # Functions:
 
-* read_reg(reg_to_read)
+* **read_reg(reg_to_read)
 
 Returns a single byte from a virtual register on the breakout.  reg_to_read should be the address of the register to read.
 
 
-**write_reg(reg_to_write_to, command_to_write)**
+* **write_reg(reg_to_write_to, command_to_write)**
 
 Function to write a single byte to a single virtual register on the breakout.  reg_to_write_to should be the address of the virtual register to be written to (BEFORE bit 7 is set to 1 to indicate a write, i.e. use the same address as for reading), command_to_write should be a single hex value to be written to that register.
 
 
-**take_single_measurement()**
+* **take_single_measurement()**
 
 Function to get the breakout to take a single set of ROYGBV readings and return them as a list of floats in the order ROYGBV.
 
 
-**get_calibrated_values()**
+* **get_calibrated_values()**
 
 Function to read, process and return stored calibrated ROYGBV values as a list of floats in the order ROYGBV.  Note that you MUST have used set_measurement_mode() to tell the device to take readings before you can fetch them with this function.
 
 
-**take_single_measurement_with_led()**
+* **take_single_measurement_with_led()**
 
 The same as take_single_measurement(), but turns on the white LED on the breakout before measuring and disables it afterwards.
 
-**get_temperature()**
+* **get_temperature()**
 
 Returns the temperature in degrees C from the sensor
 
 
-**get_temperature_f()**
+* **get_temperature_f()**
 
 #Returns the temperature in degrees F from the sensor
 
 
-**enable_main_led()**
+* **enable_main_led()**
 
 Turns on the white LED on the breakout.  The brightness is controlled by set_led_current().
 
 
-**disable_main_led()**
+* **disable_main_led()**
 
 Turns the white LED on the breakout off.
 
 
-**enable_indicator_led()**
+* **enable_indicator_led()**
 
 Turns on the blue indicator LED on the breakout board.  The brightness is controlled by set_indicator_current()
 
 
-**disable_indicator_led()**
+* **disable_indicator_led()**
 
 Turns the indicator LED off.
 
 
-**set_measurement_mode(mode)**
+* **set_measurement_mode(mode)**
 
 Tells the breaout how to take measurements, MUST be passed a value of 0, 1, 2 or 3.  Without setting this first no readings will be made and get_calibrated_values() will fail.
 
@@ -82,7 +82,7 @@ Tells the breaout how to take measurements, MUST be passed a value of 0, 1, 2 or
 3 = single measurement of all channels (no repeat readings/rate)
 
 
-**set_indicator_current(current_level)**
+* **set_indicator_current(current_level)**
 
 Sets the current provided to the indicator LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, the LED doesn't actually turn on until enable_indicator_led() is used.
 
@@ -95,7 +95,7 @@ Sets the current provided to the indicator LED, MUST be passed a value of 0, 1, 
 3 = 8 mA
 	
 
-**set_led_current(current_level)**
+* **set_led_current(current_level)**
 
 Sets the current provided to the white LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, the LED doesn't actually turn on until enable_main_led() is used.
 
@@ -108,12 +108,12 @@ Sets the current provided to the white LED, MUST be passed a value of 0, 1, 2 or
 3 = 100 mA
 
 
-**soft_reset()**
+* **soft_reset()**
 
 Soft resets the breakout with 0.8 second wait for the device to reset (this time was determined experimentally, anything much less seems to cause the I2C bus to timeout).
 
 
-**set_gain(gain)**
+* **set_gain(gain)**
 
 Sets the gain of the spectrometer.  More gain = higher readings, MUST be passed a value of 0, 1, 2 or 3.
 
@@ -126,6 +126,6 @@ Sets the gain of the spectrometer.  More gain = higher readings, MUST be passed 
 3 = x64  gain
 
 
-**set_integration_time(time)**
+* **set_integration_time(time)**
 
 Sets the integration time of the readings.  Must be given an integer between 1 and 255, refer to the set_measurement_mode() section to see how this affects the time to take a reading.
