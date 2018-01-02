@@ -1,4 +1,4 @@
-"""A script to take measurements from the SparkFun Spectral Sensor Breakout - AS7262 Visible, and display it on a 
+"""A Demo script to take measurements from the SparkFun AS7262 Visible Spectral Sensor Breakout and display it on a 
 Pimoroni Unicorn HAT HD in a bar-graph like format.  Requires the spectrometer.py file to be in the same directory."""
 
 import unicornhathd
@@ -13,7 +13,7 @@ spectro.set_integration_time(50)
 spectro.disable_indicator_led()
 
 #Set the brightness of the Unicorn HAT HD from 0.0 - 0.9, default 0.5
-unicornhathd.brightness(0.25)
+unicornhathd.brightness(0.5)
 
 #Set the rotation of the Unicorn HAT HD in 90-degree increments
 unicornhathd.rotation(0)
