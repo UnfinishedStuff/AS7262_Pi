@@ -4,21 +4,21 @@ Python script for using the Sparkfun AS7262 Visible Spectrometer with the Raspbe
 Requires the SMBus, time and struct Python modules (all installed on the Pi by default).
 
 
-def read_reg(reg_to_read):
-#Returns a single byte from a virtual register on the breakout.  reg_to_read should be the address of the register to read.
+# def read_reg(reg_to_read):
+Returns a single byte from a virtual register on the breakout.  reg_to_read should be the address of the register to read.
 
 
 def write_reg(reg_to_write_to, command_to_write):
-#Function to write a single byte to a single virtual register on the breakout.  reg_to_write_to should be the address of the virtual register to be written to (BEFORE bit 7 is set to 1 to indicate a write, i.e. use the same address as for reading), command_to_write should be a single hex value to be written to that register.
+Function to write a single byte to a single virtual register on the breakout.  reg_to_write_to should be the address of the virtual register to be written to (BEFORE bit 7 is set to 1 to indicate a write, i.e. use the same address as for reading), command_to_write should be a single hex value to be written to that register.
 
 
 def take_single_measurement():
-#Function to get the breakout to take a single set of ROYGBV readings and return them as a list of floats in the order ROYGBV.
+Function to get the breakout to take a single set of ROYGBV readings and return them as a list of floats in the order ROYGBV.
 
 
 
 def get_calibrated_values():
-#Function to read, process and return stored calibrated ROYGBV values as a list of floats in the order ROYGBV.  Note that you MUST have used set_measurement_mode() to tell the device to take readings before you can fetch them with this function.
+Function to read, process and return stored calibrated ROYGBV values as a list of floats in the order ROYGBV.  Note that you MUST have used set_measurement_mode() to tell the device to take readings before you can fetch them with this function.
 
 
 
