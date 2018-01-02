@@ -46,7 +46,7 @@ Returns the temperature in degrees C from the sensor
 
 * **get_temperature_f()**
 
-#Returns the temperature in degrees F from the sensor
+Returns the temperature in degrees F from the sensor
 
 
 * **enable_main_led()**
@@ -71,7 +71,7 @@ Turns the indicator LED off.
 
 * **set_measurement_mode(mode)**
 
-Tells the breaout how to take measurements, MUST be passed a value of 0, 1, 2 or 3.  Without setting this first no readings will be made and get_calibrated_values() will fail.
+Tells the breakout how to take measurements, MUST be passed a value of 0, 1, 2 or 3.  Without setting this first no readings will be made and get_calibrated_values() will fail.
 
 0 = continuous VBGY readings every (integration time * 2.8 ms)
 
