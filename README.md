@@ -5,13 +5,15 @@ Please note that these were written for and have only been tested on the *visibl
 
 **Recommended usage:**
 
-1) Use set_gain(gain) to set the gain (the Sparkfun Arduino library uses a value of 3 for x64 gain)
+1) Place this script in the same directory as your script, and import it
 
-2) Use set_integration_time(time) to set the integration time (the Sparkfun Arduino library uses a value of 50 for 140ms cycle time)
+2) Use set_gain(gain) to set the gain (the Sparkfun Arduino library uses a value of 3 for x64 gain)
 
-3) Use set_measurement_mode(mode) to tell the board how often to take readings
+3) Use set_integration_time(time) to set the integration time (the Sparkfun Arduino library uses a value of 50 for 140ms cycle time)
 
-1) Use get_calibrated_values() to return a list of 6 floats with values in the order ROYGBV.
+4) Use set_measurement_mode(mode) to tell the board how often to take readings
+
+5) Use get_calibrated_values() to return a list of 6 floats with values in the order ROYGBV.
 
 # Functions:
 
