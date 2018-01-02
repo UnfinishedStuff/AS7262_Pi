@@ -1,6 +1,8 @@
 # AS7262-Pi
 This is a set of functions for using the Sparkfun AS7262 Visible Spectrometer with the Raspberry Pi.  The Default I2C address of the device is 0x49.  Requires the *SMBus*, *time* and *struct* Python modules (all installed on the Pi by default).  At the time of writing the SparkFun product page for the board is: https://www.sparkfun.com/products/14347
 
+Please note that these were written for and have only been tested on the *visible* spectrometer board, not the similar AS7263 near infra-red board.
+
 **Recommended usage:**
 
 1) Use set_gain(gain) to set the gain (the Sparkfun Arduino library uses a value of 3 for x64 gain)
