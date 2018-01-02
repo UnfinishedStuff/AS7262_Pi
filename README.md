@@ -3,7 +3,7 @@ Python script for using the Sparkfun AS7262 Visible Spectrometer with the Raspbe
 
 Requires the SMBus, time and struct Python modules (all installed on the Pi by default).
 
-#Functions:
+# Functions:
 
 def read_reg(reg_to_read):
 Returns a single byte from a virtual register on the breakout.  reg_to_read should be the address of the register to read.
