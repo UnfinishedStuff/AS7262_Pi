@@ -41,7 +41,7 @@ def updateColour(colour, value):
 	if value > 16:
 		value = 16
   #Set the two coloumns of the bar for the colour:
-  	for x in range(xCoord1, xCoord2):
+	for x in range(xCoord1, xCoord2):
     #Set the height of the bars
 		for y in range (0,value):
 			unicornhathd.set_pixel(x,y,r,g,b)
