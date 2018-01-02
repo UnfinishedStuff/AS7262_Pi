@@ -1,5 +1,5 @@
 # AS7262-Pi
-This is a set of functions for using the Sparkfun AS7262 Visible Spectrometer with the Raspberry Pi.  The Default I2C address of the device is 0x49.  Requires the *SMBus*, *time* and *struct* Python modules (all installed on the Pi by default).
+This is a set of functions for using the Sparkfun AS7262 Visible Spectrometer with the Raspberry Pi.  The Default I2C address of the device is 0x49.  Requires the *SMBus*, *time* and *struct* Python modules (all installed on the Pi by default).  At the time of writing the SparkFun product page for the board is: https://www.sparkfun.com/products/14347
 
 **Recommended usage:**
 
