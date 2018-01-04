@@ -6,6 +6,10 @@ This is a set of functions for using the Sparkfun AS7262 Visible Spectrometer (h
 
 Please note that these were written for and have only been tested on the *visible* spectrometer board, not the similar AS7263 near infra-red board.
 
+**Connecting the board**
+
+The board has what Sparkfun calls Qwiic connectors, but it's possible to connect the board to the Raspberry Pi's GPIO pin headers with a little soldering.  Use jumper wires to connect GND to one of the Pi's GPIO Ground wires, 3v3 to the Pi's 3v3 pin, SDA to BCM2/GPIO3, and SCL to BCM3/GPIO5.  See pinout.xyz if you need help.  This script doesn't currently support interacting with the interrupt or reset pins.
+
 **Suggested usage:**
 
 1) Place this script in the same directory as your script, and import it
