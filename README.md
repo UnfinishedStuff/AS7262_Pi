@@ -8,7 +8,7 @@ Please note that these were written for and have only been tested on the *visibl
 
 **Connecting the board**
 
-The board has what Sparkfun calls Qwiic connectors, but it's possible to connect the board to the Raspberry Pi's GPIO pin headers with a little soldering.  Use jumper wires to connect GND to one of the Pi's GPIO Ground wires, 3v3 to the Pi's 3v3 pin, SDA to BCM2/GPIO3, and SCL to BCM3/GPIO5.  See pinout.xyz if you need help.  This script doesn't currently support interacting with the interrupt or reset pins.
+The board has what Sparkfun calls Qwiic connectors, but it's possible to connect the board to the Raspberry Pi's GPIO pin headers with a little soldering.  Use jumper wires to connect GND to one of the Pi's GPIO Ground wires, 3v3 to the Pi's 3v3 pin, SDA to BCM2/GPIO3, and SCL to BCM3/GPIO5.  See https://www.pinout.xyz if you need help.  This script doesn't currently support interacting with the interrupt or reset pins.
 
 **Suggested usage:**
 
