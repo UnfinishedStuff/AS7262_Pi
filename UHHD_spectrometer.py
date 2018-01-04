@@ -1,5 +1,6 @@
 """A Demo script to take measurements from the SparkFun AS7262 Visible Spectral Sensor Breakout and display it on a 
-Pimoroni Unicorn HAT HD in a bar-graph like format.  Requires the spectrometer.py file to be in the same directory."""
+Pimoroni Unicorn HAT HD in a bar-graph like format.  Requires the AS7262_Pi.py file to be in the same directory.  
+Connect both the AS7262 and the Unicorn HAT HD to the Pi's GPIO header, I've found that a Pimoroni Pico HAT hacker works great for this."""
 
 import unicornhathd
 import time
