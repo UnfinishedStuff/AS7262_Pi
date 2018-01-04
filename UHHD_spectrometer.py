@@ -50,7 +50,7 @@ def updateColour(colour, value):
 		for y in range (value, 16):
 			unicornhathd.set_pixel(x,y,0,0,0)
 
-
+print("Measuring rainbows!")
 
 #Set to continuous ROYGBV measurements
 spectro.set_measurement_mode(2)
