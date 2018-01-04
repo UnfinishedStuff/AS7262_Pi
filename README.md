@@ -1,17 +1,20 @@
 # AS7262-Pi
-This is a set of functions for using the Sparkfun AS7262 Visible Spectrometer with the Raspberry Pi.  The Default I2C address of the device is 0x49.  Requires the *SMBus*, *time* and *struct* Python modules (all installed on the Pi by default).  At the time of writing the SparkFun product page for the board is: https://www.sparkfun.com/products/14347
+
+**Introduction**
+
+This is a set of functions for using the Sparkfun AS7262 Visible Spectrometer (https://www.sparkfun.com/products/14347) with the Raspberry Pi.  The Default I2C address of the device is 0x49.  Requires the *SMBus*, *time* and *struct* Python modules, all installed on the Pi by default.
 
 Please note that these were written for and have only been tested on the *visible* spectrometer board, not the similar AS7263 near infra-red board.
 
-**Recommended usage:**
+**Suggested usage:**
 
 1) Place this script in the same directory as your script, and import it
 
-2) Use set_gain(gain) to set the gain (the Sparkfun Arduino library uses a value of 3 for x64 gain)
+2) Use set_gain(gain) to set the gain (by default the Sparkfun Arduino library uses a gain value of 3, for x64 gain)
 
-3) Use set_integration_time(time) to set the integration time (the Sparkfun Arduino library uses a value of 50 for 140ms cycle time)
+3) Use set_integration_time(time) to set the integration time (by default the Sparkfun Arduino library uses a value of 50, for 140ms cycle time)
 
-4) Use set_measurement_mode(mode) to tell the board how often to take readings
+4) Use set_measurement_mode(mode) to tell the board how often to take readings.  A value of 3 measures a single set of red, orange, yellow, green, blue and violet values.
 
 5) Use get_calibrated_values() to return a list of 6 floats with values in the order ROYGBV.
 
