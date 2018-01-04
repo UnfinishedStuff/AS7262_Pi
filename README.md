@@ -12,15 +12,19 @@ The board has what Sparkfun calls Qwiic connectors, but it's possible to connect
 
 **Suggested usage:**
 
-1) Place this script in the same directory as your script, and import it
+0) Ensure that I2C is enabled on your Pi: run `sudo raspi-config` in a terminal, and then go to Interfacing Options > I2C > yes
 
-2) Use set_gain(gain) to set the gain (by default the Sparkfun Arduino library uses a gain value of 3, for x64 gain)
+1) Download this repo by running `git clone https://github.com/Shoe-Pi/AS7262_Pi` in a terminal
 
-3) Use set_integration_time(time) to set the integration time (by default the Sparkfun Arduino library uses a value of 50, for 140ms cycle time)
+2) Place the file called "AS7262_Pi.py" in the same directory as your script, and import it
 
-4) Use set_measurement_mode(mode) to tell the board how often to take readings.  A value of 3 measures a single set of red, orange, yellow, green, blue and violet values.
+3) Use set_gain(gain) to set the gain (by default the Sparkfun Arduino library uses a gain value of 3, for x64 gain)
 
-5) Use get_calibrated_values() to return a list of 6 floats with values in the order ROYGBV.
+4) Use set_integration_time(time) to set the integration time (by default the Sparkfun Arduino library uses a value of 50, for 140ms cycle time)
+
+5) Use set_measurement_mode(mode) to tell the board how often to take readings.  A value of 3 measures a single set of red, orange, yellow, green, blue and violet values.
+
+6) Use get_calibrated_values() to return a list of 6 floats with values in the order ROYGBV.
 
 # Functions:
 
