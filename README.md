@@ -1,3 +1,5 @@
+![Rainbows](rainbows.gif)
+
 # AS7262-Pi
 
 **Introduction**
