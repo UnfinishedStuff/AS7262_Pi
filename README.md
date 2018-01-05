@@ -1,5 +1,5 @@
 
-# AS7262-Pi: 6 colour spectrometry for the Raspberry Pi!
+# AS7262-Pi: 6 colour spectroscopy for the Raspberry Pi!
 
 ![Rainbows](rainbows.gif)
 
