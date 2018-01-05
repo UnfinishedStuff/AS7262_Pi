@@ -12,8 +12,8 @@ Please note that these were written for and have only been tested on the *visibl
 There are 4 files in this repo: 
 1) README.md is the file you're currently reading and contains information about how to use this repo.
 2) AS7262_Pi.py contains all of the functions which make the AS7262 board work with the Pi.
-3) Basic_example.py is, well, a basic, minimalist example of how to use the A7262 board with the Pi.
-4) UHHD_spectrometer.py is a more advanced demo script which displays the readings of the A7262 on a Pimoroni Unicorn HAT HD in a bar chart-like format.  You can see it in action in the .gif at the top of this page.
+3) Basic_example.py is, well, a basic, minimalist example of how to use the AS7262 board with the Pi.
+4) UHHD_spectrometer.py is a more advanced demo script which displays the readings of the AS7262 on a Pimoroni Unicorn HAT HD in a bar chart-like format.  You can see it in action in the .gif at the top of this page.
 
 **Connecting the board**
 
