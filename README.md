@@ -41,7 +41,7 @@ The board has what Sparkfun calls Qwiic connectors, but it's possible to connect
 
 * **take_single_measurement()**
 
-Function to get the breakout to take a single set of ROYGBV readings and return them as a list of 6 floats in the order ROYGBV.
+Function to get the breakout to take a single set of red, orange, yellow, green, blue and violet readings and return them as a list of 6 floats in the order ROYGBV.
 
 
 * **take_single_measurement_with_led()**
@@ -51,7 +51,7 @@ The same as `take_single_measurement()`, but turns on the white LED on the break
 
 * **get_calibrated_values()**
 
-Function to read, process and return stored calibrated ROYGBV values as a list of floats in the order ROYGBV.  Note that you MUST have used `set_measurement_mode(mode)` to tell the device to take readings before you can fetch them with this function.
+Function to read, process and return stored calibrated red, orange, yellow, green, blue and violet values as a list of floats in the order ROYGBV.  Note that once `get_calibrated_readings()` is used a flag is set on the AS7262 stating that no new values are available to be read until the device takes another set of readings.  For `set_measurement_mode()` values of 0-2 this shouldn't cause issues because the board will continuously take new readings.  However, in measurement mode 3 (single measurement mode) subsequent attempts to retrieve readings will fail until the board is put back into mode 3 to take another set of readings.  
 
 
 * **set_measurement_mode(mode)**
@@ -69,12 +69,12 @@ Tells the breakout how to take measurements, MUST be passed a value of 0, 1, 2 o
 
 * **enable_main_led()**
 
-Turns on the white LED on the breakout.  The brightness is controlled by `set_led_current()`.  The LED is off by default.
+Turns on the breakout's white LED.  The brightness is controlled by `set_led_current()`.  The LED is off by default.
 
 
 * **disable_main_led()**
 
-Turns the white LED on the breakout off.
+Turns the breakout's white LED off.
 
 
 * **set_led_current(current_level)**
@@ -82,19 +82,22 @@ Turns the white LED on the breakout off.
 Sets the current provided to the white LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, note that the LED doesn't actually turn on until `enable_main_led()` is used.  Defaults to 12.5 mA (mode 0).
 
 0 = 12.5 mA 
+
 1 = 25 mA
+
 2 = 50 mA
+
 3 = 100 mA
 
 
 * **enable_indicator_led()**
 
-Turns on the blue indicator LED on the breakout board.  The brightness is controlled by `set_indicator_current()`.  The LED is off by default.
+Turns on the breakout's blue indicator LED.  The brightness is controlled by `set_indicator_current()`.  The LED is off by default.
 
 
 * **disable_indicator_led()**
 
-Turns the indicator LED off.
+Turns the breakout's indicator LED off.
 
 
 * **set_indicator_current(current_level)**
@@ -102,14 +105,17 @@ Turns the indicator LED off.
 Sets the current provided to the indicator LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, note that the LED doesn't actually turn on until `enable_indicator_led()` is used.  Defaults to 1 mA (mode 0).
 
 0 = 1 mA 
+
 1 = 2 mA
+
 2 = 4 mA
+
 3 = 8 mA
 	
 
 * **soft_reset()**
 
-Soft resets the breakout with 0.8 second wait for the device to reset (this time was determined experimentally, anything less seems to cause the I2C bus to timeout).  This should reset all control registers to their default values.
+Soft resets the breakout with a 0.8 second wait for the device to reset (this time was determined experimentally, anything less seems to cause the I2C bus to timeout).  This should reset all control registers to their default values.
 
 
 * **set_gain(gain)**
@@ -117,14 +123,17 @@ Soft resets the breakout with 0.8 second wait for the device to reset (this time
 Sets the gain of the spectrometer.  More gain = higher readings, MUST be passed an integer value of 0, 1, 2 or 3.  Defaults to x1 (mode 0).
 
 0 = x1   gain
+
 1 = x3.7 gain
+
 2 = x16  gain
+
 3 = x64  gain
 
 
 * **set_integration_time(time)**
 
-Sets the integration time of the readings.  Must be given an integer between 1 and 255, refer to the `set_measurement_mode()` section to see how this affects the time to take a reading.  Defaults to 255.
+Sets the integration time of the readings.  Higher values mean longer measurements but are less prone to noise (?).  Must be given an integer between 1 and 255, refer to the `set_measurement_mode()` section to see how this affects the time to take a reading.  Defaults to 255.
 
 
 * **get_temperature()**
