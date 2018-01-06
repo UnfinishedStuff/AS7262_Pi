@@ -56,7 +56,7 @@ Function to read, process and return stored calibrated red, orange, yellow, gree
 
 * **set_measurement_mode(mode)**
 
-Tells the breakout how to take measurements, MUST be passed a value of 0, 1, 2 or 3.  Without setting this first no readings will be made and `get_calibrated_values()` will fail.  Defaults to mode 2.
+Tells the breakout how to take measurements, MUST be passed an integer value of 0, 1, 2 or 3.  Defaults to mode 2.
 
 0 = continuous violet, blue, green and yellow readings every (integration time * 2.8) milliseconds.
 
@@ -79,7 +79,7 @@ Turns the breakout's white LED off.
 
 * **set_led_current(current_level)**
 
-Sets the current provided to the white LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, note that the LED doesn't actually turn on until `enable_main_led()` is used.  Defaults to 12.5 mA (mode 0).
+Sets the current provided to the white LED, MUST be passed an integer value of 0, 1, 2 or 3.  More current is brighter, but note that the LED doesn't actually turn on until `enable_main_led()` is used.  Defaults to 12.5 mA (mode 0).
 
 0 = 12.5 mA 
 
@@ -102,7 +102,7 @@ Turns the breakout's indicator LED off.
 
 * **set_indicator_current(current_level)**
 
-Sets the current provided to the indicator LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, note that the LED doesn't actually turn on until `enable_indicator_led()` is used.  Defaults to 1 mA (mode 0).
+Sets the current provided to the indicator LED, MUST be passed an integer value of 0, 1, 2 or 3.  More current is brighter, but note that the LED doesn't actually turn on until `enable_indicator_led()` is used.  Defaults to 1 mA (mode 0).
 
 0 = 1 mA 
 
@@ -115,12 +115,12 @@ Sets the current provided to the indicator LED, MUST be passed a value of 0, 1, 
 
 * **soft_reset()**
 
-Soft resets the breakout with a 0.8 second wait for the device to reset (this time was determined experimentally, anything less seems to cause the I2C bus to timeout).  This should reset all control registers to their default values.
+Soft resets the breakout with a 0.8 second wait for the reset to complete (this time was determined experimentally, anything less seems to cause the I2C bus to timeout).  This should reset all control registers to their default values.
 
 
 * **set_gain(gain)**
 
-Sets the gain of the spectrometer.  More gain = higher readings, MUST be passed an integer value of 0, 1, 2 or 3.  Defaults to x1 (mode 0).
+Sets the gain of the spectrometer.  More gain = higher readings, MUST be passed an integer value of 0, 1, 2 or 3.  Defaults to x1 (mode 0).  Sparkfun's library for the AS7262 seems to routinely use a value of 3/x64.
 
 0 = x1   gain
 
@@ -133,7 +133,7 @@ Sets the gain of the spectrometer.  More gain = higher readings, MUST be passed 
 
 * **set_integration_time(time)**
 
-Sets the integration time of the readings.  Higher values mean longer measurements but are less prone to noise (?).  Must be given an integer between 1 and 255, refer to the `set_measurement_mode()` section to see how this affects the time to take a reading.  Defaults to 255.
+Sets the integration time of the readings.  Higher values mean longer measurements but are less prone to noise (?).  Must be given an integer between 1 and 255, refer to the `set_measurement_mode()` section to see how this affects the time to take a reading.  Defaults to 255.  Sparkfun's library for the AS7262 seems to routinely use a value of 50.
 
 
 * **get_temperature()**
