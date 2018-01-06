@@ -5,12 +5,12 @@
 
 **Introduction**
 
-This is a set of functions for using the [Sparkfun AS7262 Visible Spectrometer](https://www.sparkfun.com/products/14347) with the Raspberry Pi.  Please note that these were written for and have only been tested on the *visible* spectrometer board, not the similar AS7263 near infra-red board.
+This is a set of functions for using the [Sparkfun AS7262 Visible Spectrometer Breakout](https://www.sparkfun.com/products/14347) with the Raspberry Pi.  Please note that these were written for and have only been tested on the *visible* spectrometer board, not the similar AS7263 near infra-red board.
 
 There are 5 files in this repo: 
 1) README.md is the file you're currently reading and contains information about how to use this repo.
 2) AS7262_Pi.py contains all of the functions which make the AS7262 board work with the Pi.
-3) Basic_example.py is, well, a basic, minimalist example of how to use the AS7262 board with the Pi.
+3) Basic_example.py is, well, a basic example of how to use the AS7262 board with the Pi.
 4) UHHD_spectrometer.py is a more advanced demo script which displays the readings of the AS7262 on a Pimoroni Unicorn HAT HD in a bar chart-like format.  You can see it in action in the .gif at the top of this page.
 5) Rainbows.gif is just a gif of the board in action with a Pimoroni Unicorn HAT HD and the UHHD_spectrometer.py demo script.
 
@@ -38,46 +38,38 @@ The board has what Sparkfun calls Qwiic connectors, but it's possible to connect
 
 # Functions:
 
+
 * **take_single_measurement()**
 
 Function to get the breakout to take a single set of ROYGBV readings and return them as a list of 6 floats in the order ROYGBV.
 
+
 * **take_single_measurement_with_led()**
 
-The same as take_single_measurement(), but turns on the white LED on the breakout before measuring and disables it afterwards.
+The same as `take_single_measurement()`, but turns on the white LED on the breakout before measuring and disables it afterwards.
 
 
 * **get_calibrated_values()**
 
-Function to read, process and return stored calibrated ROYGBV values as a list of floats in the order ROYGBV.  Note that you MUST have used set_measurement_mode() to tell the device to take readings before you can fetch them with this function.
+Function to read, process and return stored calibrated ROYGBV values as a list of floats in the order ROYGBV.  Note that you MUST have used `set_measurement_mode(mode)` to tell the device to take readings before you can fetch them with this function.
 
 
 * **set_measurement_mode(mode)**
 
-Tells the breakout how to take measurements, MUST be passed a value of 0, 1, 2 or 3.  Without setting this first no readings will be made and get_calibrated_values() will fail.
+Tells the breakout how to take measurements, MUST be passed a value of 0, 1, 2 or 3.  Without setting this first no readings will be made and `get_calibrated_values()` will fail.  Defaults to mode 2.
 
-0 = continuous VBGY readings every (integration time * 2.8
+0 = continuous violet, blue, green and yellow readings every (integration time * 2.8) milliseconds.
 
-1 = continuous GYOR readings every (integration time * 2.8) milliseconds
+1 = continuous green, yellow, orange and red readings every (integration time * 2.8) milliseconds.
 
-2 = continuous reading of all channels every (integration time * 2 * 2.8) milliseconds
+2 = continuous readings of all channels (violet, blue, green, yellow, orange and red) every (integration time * 2 * 2.8) milliseconds.
 
-3 = single measurement of all channels (no repeat readings/rate)
-
-
-* **get_temperature()**
-
-Returns the temperature in degrees C from the sensor
-
-
-* **get_temperature_f()**
-
-Returns the temperature in degrees F from the sensor
+3 = single measurement of all channels (no repeat readings/rate).
 
 
 * **enable_main_led()**
 
-Turns on the white LED on the breakout.  The brightness is controlled by set_led_current().
+Turns on the white LED on the breakout.  The brightness is controlled by `set_led_current()`.  The LED is off by default.
 
 
 * **disable_main_led()**
@@ -85,9 +77,19 @@ Turns on the white LED on the breakout.  The brightness is controlled by set_led
 Turns the white LED on the breakout off.
 
 
+* **set_led_current(current_level)**
+
+Sets the current provided to the white LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, note that the LED doesn't actually turn on until `enable_main_led()` is used.  Defaults to 12.5 mA (mode 0).
+
+0 = 12.5 mA 
+1 = 25 mA
+2 = 50 mA
+3 = 100 mA
+
+
 * **enable_indicator_led()**
 
-Turns on the blue indicator LED on the breakout board.  The brightness is controlled by set_indicator_current()
+Turns on the blue indicator LED on the breakout board.  The brightness is controlled by `set_indicator_current()`.  The LED is off by default.
 
 
 * **disable_indicator_led()**
@@ -97,51 +99,42 @@ Turns the indicator LED off.
 
 * **set_indicator_current(current_level)**
 
-Sets the current provided to the indicator LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, the LED doesn't actually turn on until enable_indicator_led() is used.
+Sets the current provided to the indicator LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, note that the LED doesn't actually turn on until `enable_indicator_led()` is used.  Defaults to 1 mA (mode 0).
 
 0 = 1 mA 
-
 1 = 2 mA
-
 2 = 4 mA
-
 3 = 8 mA
 	
 
-* **set_led_current(current_level)**
-
-Sets the current provided to the white LED, MUST be passed a value of 0, 1, 2 or 3.  More current is brighter, the LED doesn't actually turn on until enable_main_led() is used.
-
-0 = 12.5 mA 
-
-1 = 25 mA
-
-2 = 50 mA
-
-3 = 100 mA
-
-
 * **soft_reset()**
 
-Soft resets the breakout with 0.8 second wait for the device to reset (this time was determined experimentally, anything much less seems to cause the I2C bus to timeout).
+Soft resets the breakout with 0.8 second wait for the device to reset (this time was determined experimentally, anything less seems to cause the I2C bus to timeout).  This should reset all control registers to their default values.
 
 
 * **set_gain(gain)**
 
-Sets the gain of the spectrometer.  More gain = higher readings, MUST be passed a value of 0, 1, 2 or 3.
+Sets the gain of the spectrometer.  More gain = higher readings, MUST be passed an integer value of 0, 1, 2 or 3.  Defaults to x1 (mode 0).
 
 0 = x1   gain
-
 1 = x3.7 gain
-
 2 = x16  gain
-
 3 = x64  gain
 
 
 * **set_integration_time(time)**
 
-Sets the integration time of the readings.  Must be given an integer between 1 and 255, refer to the set_measurement_mode() section to see how this affects the time to take a reading.
+Sets the integration time of the readings.  Must be given an integer between 1 and 255, refer to the `set_measurement_mode()` section to see how this affects the time to take a reading.  Defaults to 255.
+
+
+* **get_temperature()**
+
+Returns the temperature in °C from the sensor using the built in temperature sensor.  This only seems to return integers.
+
+
+* **get_temperature_f()**
+
+Returns the temperature in °F from the sensor by converting the centrigade value of `get_temperature()` to °F.
 
 
 * **read_reg(reg_to_read)**
