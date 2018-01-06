@@ -12,7 +12,7 @@ There are 5 files in this repo:
 2) AS7262_Pi.py contains all of the functions which make the AS7262 board work with the Pi.
 3) Basic_example.py is, well, a basic example of how to use the AS7262 board with the Pi.
 4) UHHD_spectrometer.py is a more advanced demo script which displays the readings of the AS7262 on a Pimoroni Unicorn HAT HD in a bar chart-like format.  You can see it in action in the .gif at the top of this page.
-5) Rainbows.gif is just a gif of the board in action with a Pimoroni Unicorn HAT HD and the UHHD_spectrometer.py demo script.
+5) Rainbows.gif is is the .gif at the top of the page, made using the UHHD_spectrometer.py script.
 
 The AS7262 communicates with the Pi using the I2C bus.  The I2C address of the device is 0x49, and the script requires the *SMBus*, *time* and *struct* Python modules, all installed on the Pi by default.
 
