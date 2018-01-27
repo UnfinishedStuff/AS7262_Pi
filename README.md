@@ -22,7 +22,7 @@ The board has what Sparkfun calls Qwiic connectors, but it's possible to connect
 
 **Suggested usage:**
 
-0) Ensure that I2C is enabled on your Pi: run `sudo raspi-config` in a terminal, and then go to `Interfacing Options` > `I2C` > `yes`.
+0) Ensure that I2C is enabled on your Pi: run `sudo raspi-config` in a terminal, and then go to `Interfacing Options` > `I2C` > `yes`.  If you're going to try the UHHD_spectrometer.py example script make sure you've got the Pimoroni Unicorn HAT HD installed (See [Pimoroni's GitHub page for the UHHD](https://github.com/pimoroni/unicorn-hat-hd)).
 
 1) Download this repo by running `git clone https://github.com/Shoe-Pi/AS7262_Pi` in a terminal.
 
